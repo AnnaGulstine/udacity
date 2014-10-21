@@ -1,0 +1,59 @@
+/**********************************
+GENERAL
+**********************************/
+
+body {
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	color: #747704;
+}
+
+a {
+	color: #747704;
+	text-decoration: none;
+
+}
+
+.text-muted {
+	color: #BCBBBB;
+}
+
+.text-thin {
+	font-weight: 100;
+}
+
+
+
+/**********************************
+HEADER
+**********************************/
+
+.title-super {
+	font-size: 60px;
+}
+
+.title-logo {
+	margin-top: 20px;
+	max-height: 100px;
+}
+
+hr {
+	border-bottom: 3px solid #BCBBBB;
+}
+
+
+/**********************************
+FOOTER
+**********************************/
+
+.img-wrapper {
+	height: 190px;
+	overflow: hidden;
+}
+
+
+
+/**********************************
+RESPONSIVE
+**********************************/
+

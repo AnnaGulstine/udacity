@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href='http://fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <title>Emily Ekdahl | Front-End Ninja</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<img src="img/logo.png" alt="logo" class="img-responsive title-logo">
+				</div>
+				<div class="col-md-6 text-uppercase text-right header-box">
+					<h1 class="title-super text-thin">Emily Ekdahl</h1>
+						<h4>Front-End Ninja</h4>
+				</div>
+			</div>
+
+			<div class= "row">
+				<div class= "col-md-12">
+					<hr>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<img src="img/sunset.jpg" alt="sunset" class="img-responsive hero">
+				</div>
+			</div>
+
+			<div class="row ">
+				<div class="col-md-12">
+					<h2 class ="text-muted">Featured Work</h2>
+				</div>
+			</div>
+			<div class="row text-center">
+				<div class="col-md-4 portfolio">
+					<div class="img-wrapper">
+						<img src="img/neobm.png" alt="Northeast Ohio Bariatric Medicine" class="img-responsive" data-toggle="modal" data-target="#neobm">
+					</div>
+					<h3 class="portfolio">Northeast Ohio Bariatric Medicine</h3>
+					<p><a href="http://www.emilyekdahl.com/neobm/" class="text-thin">http://www.emilyekdahl.com/neobm/</a></p>
+				</div>
+
+				<div class="col-md-4 portfolio">
+					<div class="img-wrapper">
+						<img src="img/ekley.png" alt="Elizabeth Ley Vocal Instructor" class="img-responsive" data-toggle="modal" data-target="#ekley">
+					</div>
+					<h3 class="portfolio">Elizabeth Ley | Vocal Instructor</h3>
+					<p><a href="http://www.emilyekdahl.com/ekley/" class="text-thin">http://www.emilyekdahl.com/ekley/</a></p>
+				</div>
+
+				<div class="col-md-4 portfolio">
+					<div class="img-wrapper">
+						<img src="img/design.png" alt="Treehouse Mock Design Portfolio" class="img-responsive" data-toggle="modal" data-target="#design">
+					</div>
+					<h3 class="portfolio">Treehouse Mock Design Portfolio</h3>
+					<p><a href="http://www.emilyekdahl.com/design/" class="text-thin">http://www.emilyekdahl.com/design/</a></p>
+				</div>
+			</div>
+		</div>
+
+	<!-- Modal -->
+		<div class="modal fade" id="neobm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title" id="myModalLabel">Northeast Ohio Bariatric Medicine</h4>
+		      </div>
+		      <div class="modal-body">
+		        <img class="img-responsive" src="img/neobm.png">
+		        Work in Progress! Brochure website for a weight-loss physician in Ohio. My first website after my original portfolio. Trying out colorbox.js, but not sure that it will stay.
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+		<div class="modal fade" id="ekley" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title" id="myModalLabel">Elizabeth Ley | Vocal Instructor</h4>
+		      </div>
+		      <div class="modal-body">
+		        <img class="img-responsive" src="img/ekley.png">
+		        Work in Progress! Brochure website for a vocal instructor in Chicago. Designed mobile-first, which is why everything is centered. Haven't gotten to the desktop layout yet, but its on my list. Trying out the trunk.js library.
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+		<div class="modal fade" id="design" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title" id="myModalLabel">Treehouse Mock Design Portfolio</h4>
+		      </div>
+		      <div class="modal-body">
+		        <img class="img-responsive" src="img/design.png">
+		        Learned HTML, CSS, and responsive design from Treehouse, an online code school.
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</body>
+</html>
