@@ -4,9 +4,9 @@ var Enemy = function() {
     // we've provided one for you to get started
 
     //start the enemy out at 0, and randomly at one of three columns
-    this.x = -100;
-    this.y = Math.floor(Math.random() * 3) + 1; 
-    this.speed = Math.floor(Math.random() * 300) + 100;
+    this.x = 0;
+    this.y = (Math.floor(Math.random() * 3) + 1) * 75; 
+    this.speed = Math.floor(Math.random() * 150) + 75;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -20,14 +20,10 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     this.x += this.speed * dt;
     if (this.x > 505) {
-        this.x = Enemy.reset();
+        this.x = -100;
     }
 };
 
-Enemy.prototype.reset = function () {
-    this.x = -100;
-    this.y = Math.floor(Math.random() * 3) + 1; 
-};
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
@@ -44,7 +40,7 @@ var Player = function() {
 
 //tell player that it always starts in the middle
     this.x = 2 * 101;
-    this.y = 5 * 83;
+    this.y = 5 * 75;
 
 
     this.sprite = 'images/char-boy.png';
@@ -56,8 +52,29 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Player.handleInput = function {
-    player.move = 
+Player.prototype.handleInput = function(keyPressed) {
+    
+var validMove = (typeof keyPressed !== 'undefined');
+    //console.log(validMove);
+
+var onBoardX = (this.x >= 0 && this.x <= 505);
+
+var onBoardY = (this.y >= 0 && this.y <= 415);
+
+    if (validMove && onBoardX && onBoardY) {
+        if (keyPressed === 'left') {
+            this.x = this.x - 101;
+
+        } else if (keyPressed === 'right') {
+            this.x = this.x + 101;
+
+        } else if (keyPressed === 'up') {
+            this.y = this.y - 83;
+
+        } else {
+            this.y = this.y + 83;
+        }
+    }
 };
 
 // tell player that it can move 101 pixels left OR right OR 83 pixels up or down
@@ -75,7 +92,7 @@ var allEnemies = [];
 
 for (var i = 0; i <= 3; i++) {
     pushEnemy = new Enemy();
-    allEnemies.push(newEnemy(i));
+    allEnemies.push(pushEnemy);
 }
 
 var player = new Player;    
