@@ -1,6 +1,4 @@
 frontend-nanodegree-arcade-game
 ===============================
 
-Students should use this rubric: https://www.udacity.com/course/viewer#!/c-ud015/l-3072058665/m-3072588797
-
-for self-checking their submission.
+Welcome to my arcade game! Use the up, down, right, and left arrow keys to navigate through grass and roads and make it safely to the water. Watch out for bugs! If they hit you you'll go back to the start!
