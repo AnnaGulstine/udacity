@@ -1,3 +1,6 @@
+var blockHeight = 83
+var blockWidth = 101
+
 // Enemies our player must avoid
 var Enemy = function() {
     // Variables applied to each of our instances go here,
@@ -5,8 +8,8 @@ var Enemy = function() {
 
     //start the enemy out at 0, and randomly at one of three columns
     this.x = 0;
-    this.y = (Math.floor(Math.random() * 3) + 1) * 75;
-    this.speed = Math.floor(Math.random() * 300) + 75;
+    this.y = (Math.floor(Math.random() * 3) + 1) * blockHeight;
+    this.speed = Math.floor(Math.random() * 300) + blockHeight;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -19,7 +22,7 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x += this.speed * dt;
-    if (this.x > 707) {
+    if (this.x > (blockWidth * 5)) {
         this.x = -100;
     }
 };
@@ -33,8 +36,8 @@ Enemy.prototype.render = function() {
 
 var Player = function() {
 // Tell player that it always starts in the middle
-    this.x = 3 * 101;
-    this.y = 9 * 83;
+    this.x = 2 * blockWidth;
+    this.y = 5 * blockHeight;
 // Use this image to represent Player character
     this.sprite = 'images/char-horn-girl.png';
 };
@@ -66,8 +69,8 @@ Player.prototype.win = function () {
 
 //This function sends the player back to the start position.
 Player.prototype.reset = function () { 
-    this.x = 3 * 101;
-    this.y = 9 * 83;
+    this.x = 2 * blockWidth;
+    this.y = 5 * blockHeight;
 };  
 
 // When updating, the player first checks for collision and win conditions.
@@ -87,27 +90,27 @@ Player.prototype.render = function() {
 // have actual meaning.
 Player.prototype.handleInput = function(keyPressed) {
     
-var validMove = (typeof keyPressed !== 'undefined');
-    console.log(validMove);
+    var validMove = (typeof keyPressed !== 'undefined');
+        console.log(validMove);
 
 
-// This section tells player that it can move 101 pixels left OR right OR 83 pixels up or down
-// EXCEPT, it cannot violate the boundaries of the canvas
-var onBoardX = (this.x >= 0 && this.x <= 606);
-var onBoardY = (this.y >= 0 && this.y <= 747);
+    // This section tells player that it can move 101 pixels left OR right OR 83 pixels up or down
+    // EXCEPT, it cannot violate the boundaries of the canvas
+    var onBoardX = (this.x >= 0 && this.x <= (blockWidth * 5));
+    var onBoardY = (this.y >= 0 && this.y <= (blockHeight * 7));
 
     if (validMove && onBoardX && onBoardY) {
         if (keyPressed === 'left' && this.x > 0) {
-            this.x = this.x - 101;
+            this.x = this.x - blockWidth;
 
-        } else if (keyPressed === 'right' && this.x < 606) {
-            this.x = this.x + 101;
+        } else if (keyPressed === 'right' && this.x < (blockWidth * 5)) {
+            this.x = this.x + blockWidth;
 
         } else if (keyPressed === 'up' && this.y > 0) {
-            this.y = this.y - 83;
+            this.y = this.y - blockHeight;
 
-        } else if (keyPressed === 'down' && this.y < 747) {
-            this.y = this.y + 83; 
+        } else if (keyPressed === 'down' && this.y < (blockHeight * 7)) {
+            this.y = this.y + blockHeight; 
         }
     }
 
@@ -120,7 +123,7 @@ var onBoardY = (this.y >= 0 && this.y <= 747);
 var allEnemies = [];
 
 for (var i = 0; i <= 3; i++) {
-    pushEnemy = new Enemy();
+    var pushEnemy = new Enemy();
     allEnemies.push(pushEnemy);
 }
 
