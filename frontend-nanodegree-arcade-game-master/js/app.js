@@ -1,26 +1,27 @@
 var blockHeight = 83
 var blockWidth = 101
 
-// Enemies our player must avoid
+/** Enemies our player must avoid */
 var Enemy = function() {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
+    /** Variables applied to each of our instances go here,
+    * we've provided one for you to get started */
 
-    //start the enemy out at 0, and randomly at one of three columns
+    /** start the enemy out at 0, and randomly at one of three columns */
     this.x = 0;
     this.y = (Math.floor(Math.random() * 3) + 1) * blockHeight;
     this.speed = Math.floor(Math.random() * 300) + blockHeight;
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
+    /** The image/sprite for our enemies, this uses
+    * a helper we've provided to easily load images */
     this.sprite = 'images/enemy-bug.png';
 };
 
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
+/** Update the enemy's position, required method for game
+* Parameter: dt, a time delta between ticks */
+
 Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
+    /** You should multiply any movement by the dt parameter
+    * which will ensure the game runs at the same speed for
+    * all computers. */
     this.x += this.speed * dt;
     if (this.x > (blockWidth * 5)) {
         this.x = -100;
@@ -28,22 +29,22 @@ Enemy.prototype.update = function(dt) {
 };
 
 
-// Draw the enemy on the screen, required method for game
+/** Draw the enemy on the screen, required method for game */
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 
 var Player = function() {
-// Tell player that it always starts in the middle
+/** Tell player that it always starts in the middle */
     this.x = 2 * blockWidth;
     this.y = 5 * blockHeight;
-// Use this image to represent Player character
+/** Use this image to represent Player character */
     this.sprite = 'images/char-horn-girl.png';
 };
 
-// NEXT: check for collisions. If player and Enemy are in the same area, 
-// then player goes back to the beginning. 
+/** NEXT: check for collisions. If player and Enemy are in the same area, 
+* then player goes back to the beginning. */
 
 Player.prototype.collision = function () {
     for (i = 0; i < allEnemies.length; i++) {
@@ -56,10 +57,9 @@ Player.prototype.collision = function () {
     }
 };
 
-// This function sets the win condition, lets the player know he or she won, 
-// and sends Player back to start.
+/** This function sets the win condition, lets the player know he or she won, 
+* and sends Player back to start. */
 Player.prototype.win = function () { 
-    //console.log(this.y)
     if (this.y === 0) {
         this.reset();
         alert("You Won!");
@@ -67,35 +67,35 @@ Player.prototype.win = function () {
     }
 };  
 
-//This function sends the player back to the start position.
+/** This function sends the player back to the start position. */
 Player.prototype.reset = function () { 
     this.x = 2 * blockWidth;
     this.y = 5 * blockHeight;
 };  
 
-// When updating, the player first checks for collision and win conditions.
+/** When updating, the player first checks for collision and win conditions.*/
 Player.prototype.update = function(dt) {
     this.collision();
     this.win();
 };
 
-// When rendering, the player references its x and y coordinates in order to
-// render to the proper location.
+/** When rendering, the player references its x and y coordinates in order to
+render to the proper location. */
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 
-// This function connects the eventListener function below so that they keys
-// have actual meaning.
+/** This function connects the eventListener function below so that they keys
+* have actual meaning. */
 Player.prototype.handleInput = function(keyPressed) {
     
     var validMove = (typeof keyPressed !== 'undefined');
         console.log(validMove);
 
 
-    // This section tells player that it can move 101 pixels left OR right OR 83 pixels up or down
-    // EXCEPT, it cannot violate the boundaries of the canvas
+    /** This section tells player that it can move 101 pixels left OR right OR 83 pixels up or down
+    * EXCEPT, it cannot violate the boundaries of the canvas */
     var onBoardX = (this.x >= 0 && this.x <= (blockWidth * 5));
     var onBoardY = (this.y >= 0 && this.y <= (blockHeight * 7));
 
@@ -116,9 +116,9 @@ Player.prototype.handleInput = function(keyPressed) {
 
 };
 
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
+/** Now instantiate your objects.
+* Place all enemy objects in an array called allEnemies
+* Place the player object in a variable called player */
 
 var allEnemies = [];
 
@@ -130,8 +130,8 @@ for (var i = 0; i <= 3; i++) {
 var player = new Player;    
 
 
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
+/** This listens for key presses and sends the keys to your
+* Player.handleInput() method. You don't need to modify this. */
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',
