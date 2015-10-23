@@ -20,17 +20,3 @@ To view this project, open index.html in your internet browser. Or, you can visi
 - Minified CSS
 
 - Minified JS
-
-- Used a script instead of a link for Google Fonts
-
-- Made the Google Analytics script async
-
-- Enabled hardware accelerated composition on the .mover property of pizzaStyle.css
-
-main.js specific
-=================================
-- subbed out getElementsByClassName() for querySelectorAll()
-
-- Moved variables outside of loops so that they are not calculated repeatedly everytime the loop runs
-
-- 
